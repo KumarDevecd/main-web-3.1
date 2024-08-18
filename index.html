@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ecodibba RFQ 3.0</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+
+
+
+  <style>
+    * {
+      scroll-behavior: smooth;
+      transition: 1500ms;
+      scrollbar-width: none;
+      /* Hide scrollbar in Firefox */
+      -ms-overflow-style: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    .swiper-button-prev {
+      margin-top: 5%;
+      color: aquamarine;
+
+    }
+
+    body {
+      width: fit-content;
+      scrollbar-width: none;
+      /* Hide scrollbar in Firefox */
+      -ms-overflow-style: none;
+
+    }
+
+
+
+
+
+    .container {
+      width: 100%;
+    }
+
+    #side-button {
+      display: none;
+    }
+
+    .paralax {
+      display: block;
+      /* Enable flexbox layout */
+      /* Align items in a row */
+      overflow: clip;
+      /* Enable horizontal scrolling */
+      scroll-snap-type: x mandatory;
+      /* Enable snap scrolling */
+      width: 100vw;
+      /* Ensure the container takes up the full viewport width */
+      height: fit-content;
+      scrollbar-width: none;
+      /* Hide scrollbar in Firefox */
+      -ms-overflow-style: none;
+      /* Hide scrollbar in IE and Edge */
+      /* Ensure the container takes up the full viewport height */
+    }
+
+    .paralax>section {
+      display: flex;
+      /* Prevent sections from growing or shrinking */
+      width: 93vw;
+      height: 100%;
+      /* Ensure each section takes up the full viewport width */
+      overflow: clip;
+      /* Ensure each section takes up the full viewport height */
+      scroll-snap-align: start;
+      /* Snap to the start of each section */
+      scrollbar-width: none;
+      /* Hide scrollbar in Firefox */
+      -ms-overflow-style: none;
+    }
+
+    .paralax::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar in WebKit browsers */
+    }
+
+    .paralax>section::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    #loader1 {
+      height: 700px;
+      z-index: 10;
+
+
+    }
+
+    #links {
+      width: 50%;
+      display: flexbox;
+      flex-direction: row;
+      position: fixed;
+      right: -10%;
+
+    }
+
+    #links>a {
+      padding: 1.5%;
+      text-align: right;
+      border-radius: 35px;
+
+    }
+
+    #links>a:hover {
+      background-color: rgba(220, 253, 236, 0.941);
+      color: #ffffff;
+
+      cursor: pointer;
+    }
+
+    #side-menu {
+      background-color: #00111f;
+      color: rgb(236, 236, 236);
+      height: 100vh;
+      width: 80%;
+      position: fixed;
+      transition-duration: 700ms;
+      top: 0;
+      z-index: 499;
+      transform: translateX(-100%);
+    }
+
+    #side-menu>nav {
+      display: block;
+      color: #fff;
+    }
+
+    .side-links {
+      padding: 3%;
+      border-radius: 55px;
+    }
+
+    .side-links:hover {
+      background-color: #2c3e50;
+      color: #84ff7d;
+      cursor: pointer;
+    }
+
+
+
+    header {
+      z-index: 500;
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      background-color: #00111f;
+
+    }
+
+    @media only screen and (min-width: 320px) {
+      #sec-testimonial {
+        width: 98%;
+      }
+
+      .swiper-button-prev {
+        margin-top: 40%;
+
+      }
+
+      .scroll-container {
+        width: 100%;
+        height: 50rem;
+        overflow: hidden;
+        position: relative;
+        margin-top: 37%;
+      }
+
+      .scroll-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: max-content;
+        padding-bottom: 25%;
+      }
+
+      #links {
+        display: none;
+      }
+
+      #head-logo {
+        margin-left: -50%;
+        margin-top: 3%;
+      }
+
+      #side-button {
+        display: flex;
+        top: -3%;
+        margin-top: 2%;
+      }
+
+      header {
+        height: 9%;
+        box-shadow: 0 2px 205px white;
+
+      }
+
+      #f-logo {
+        display: none;
+      }
+
+      #f-link {
+        display: none;
+      }
+
+      #f-logo,
+      #f-link,
+      #fs-link {
+        margin-top: -3%;
+      }
+
+    }
+
+
+    @media only screen and (min-width: 768px) {
+      .scroll-container {
+        width: 100%;
+        height: 50rem;
+        overflow: hidden;
+        position: relative;
+        margin-top: 7%;
+      }
+
+      #sec-testimonial {
+        width: 90%;
+      }
+
+      #head-logo {
+        margin-left: 3%;
+        margin-top: 2.3%;
+      }
+
+      #side-button {
+        display: flex;
+        top: -3%;
+        margin-top: 2%;
+      }
+
+      header {
+        height: 9%;
+        box-shadow: 0 2px 205px white;
+
+      }
+
+
+      .swiper-button-prev {
+        margin-top: 5%;
+
+      }
+
+      .scroll-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: max-content;
+        padding-bottom: 25%;
+      }
+
+      #f-logo {
+        display: flex;
+      }
+
+      #f-link {
+        display: flex;
+      }
+
+      #f-logo,
+      #f-link,
+      #fs-link {
+        margin-top: 0%;
+      }
+
+    }
+
+    .scroll-content {
+      padding-top: 2%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      .scroll-container {
+        width: 100%;
+        height: 70rem;
+        overflow: hidden;
+        position: relative;
+        margin-top: 2%;
+      }
+
+      #sec-testimonial {
+        margin-top: -5%;
+        padding-bottom: 5%;
+        width: 80%;
+      }
+
+      .scroll-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: max-content;
+        padding-bottom: 25%;
+      }
+
+
+
+      #side-button {
+        display: none;
+      }
+
+      #head-logo {
+        margin-left: 5%;
+        margin-top: 1%;
+      }
+
+      header {
+        height: 8%;
+      }
+
+
+
+      #links {
+        display: inline;
+        width: 50%;
+        display: flexbox;
+        flex-direction: row;
+        position: fixed;
+        right: -4%;
+        margin-top: 5%;
+
+      }
+
+      #print {
+        margin-top: -9.3%;
+      }
+
+
+    }
+
+    @media only screen and (min-width: 1440px) {
+      #head-logo {
+        margin-left: 5%;
+        margin-top: 1%;
+      }
+
+      header {
+        height: 10%;
+      }
+
+
+
+      #links {
+        display: inline;
+        width: 50%;
+        display: flexbox;
+        flex-direction: row;
+        position: fixed;
+        right: -10%;
+        margin-top: 4%;
+
+      }
+
+    }
+
+    .txt-btn {
+      padding: 0.5%;
+      border-radius: 25px;
+      padding-left: 1%;
+      padding-right: 1%;
+      transition-duration: 1000;
+      margin-top: 3%;
+    }
+
+    .txt-btn:hover {
+      color: #fff;
+      background-color: rgb(0, 255, 123);
+      cursor: pointer;
+
+    }
+
+    .box-type:hover {
+      cursor: pointer;
+
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 400px;
+      /* Adjust height if needed */
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      transition-property: transform;
+      margin: auto;
+    }
+
+    .swiper-slide {
+      flex-shrink: 0;
+      width: 100%;
+      /* Adjust width if needed */
+      height: 100%;
+      /* Ensure slides are properly sized */
+      transition-duration: 100ms;
+      border-radius: 10px;
+    }
+
+    section {
+      margin: auto;
+    }
+
+    .header {
+      background-color: #00111f;
+      width: 100vw;
+      height: 10%;
+      box-shadow: 0px 2px 25px rgb(0, 5, 21)
+    }
+
+    footer {
+      width: 100vw;
+      background-color: #fff;
+    }
+
+    .footer {
+      background-color: #00111f;
+
+      height: 10%;
+
+
+    }
+
+    .swiper-slide:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #00111f;
+      opacity: 1;
+      /* Ensure bullets are fully visible */
+      border: 1px solid rgb(0, 255, 123);
+
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: rgb(0, 255, 123);
+      /* Darker green for the active bullet */
+      box-shadow: 0 1px 6px #fff;
+    }
+
+
+
+    .text-green-400 {
+      color: rgb(0, 255, 123);
+    }
+
+    .bg-green-500 {
+      background-color: rgb(0, 255, 123);
+    }
+
+    .notification {
+      display: none;
+
+    }
+
+    .testimonial {
+      width: 80%;
+      transform: scale(0.8);
+
+
+    }
+
+    .testimonial:hover {
+      box-shadow: none;
+      border: none;
+      transform: scale(1);
+    }
+
+    .partners {
+
+      transition-duration: 600;
+
+    }
+
+    .partners>img {
+      transform: scale(0.7);
+      box-shadow: 2px 5px 10px #00111f;
+    }
+
+    .partners:hover {
+      box-shadow: none;
+      border: none;
+      transform: scale(1.1);
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        scale: 0.5;
+        transform: translateY(100%);
+
+      }
+
+      to {
+        opacity: 1;
+        scale: 1;
+        transform: translateY(0%);
+
+      }
+    }
+
+    @keyframes slide-left {
+      from {
+        opacity: 0;
+        transform: translateX(-150%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+
+    @keyframes slide-right {
+      from {
+        opacity: 0;
+        transform: translateX(150%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+
+    .up-animate {
+      animation: appear linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+
+    }
+
+    .left-animate {
+      animation: slide-left 2s linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    .right-animate {
+      animation: slide-right 2s linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    .paralax {
+      background-color: #d6d6d6;
+      color: #00111f;
+    }
+
+    .paralax>section {
+      background-color: #d6d6d6;
+      color: #1f2021;
+    }
+
+    .paralax>section>h1 {
+      color: #1f2021;
+    }
+
+    section {
+      background-color: #d6d6d6;
+      color: #1f2021;
+    }
+
+    li:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 ">
+
+  <!-- header section-->
+  <header class="text-gray-400  body-font ">
+
+    <div class="container mx-auto flex flex-wrap  flex-col md:flex-row items-center header">
+      <a class="flex title-font font-medium text-white mb-4 md:mb-0" id="head-logo">
+        <img src="logo1.png" alt="" width="50px" style="display: none;">
+        <span class="ml-3 text-xl"><span style="color:rgb(0, 255, 123);">eco</span>dibba</span>
+      </a>
+      <nav id="links">
+        <a class="mr-5 hover:text-white " onclick="document.getElementById('hero').scrollIntoView();">Home</a>
+        <a class="mr-5 hover:text-white " onclick="document.getElementById('menu').scrollIntoView();">Categories</a>
+        <a class="mr-5 hover:text-white " onclick="document.getElementById('category').scrollIntoView();">Products</a>
+        <a class="mr-5 hover:text-white " href="https://rfq.ecodibba.com/" target="_blank">RFQ</a>
+      </nav>
+
+      <button class=" inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded
+          text-base mt-4 md:mt-0" style="position: fixed;right:50px;top:1%;" id="side-button" onclick="toggle()">
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+    </div>
+
+
+  </header>
+  <section class="text-gray-400 bg-gray-900 body-font  " id="side-menu">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <nav style="display:flex;flex-direction:column;text-align:left;">
+          <a class="mr-5 hover:text-white side-links"
+            onclick="document.getElementById('hero').scrollIntoView();document.getElementById('side-menu').style.transform = 'translateX(-100%)';">Home</a>
+          <a class="mr-5 hover:text-white side-links"
+            onclick="document.getElementById('menu').scrollIntoView();document.getElementById('side-menu').style.transform = 'translateX(-100%)';">Categories</a>
+          <a class="mr-5 hover:text-white side-links"
+            onclick="document.getElementById('menu').scrollIntoView();document.getElementById('side-menu').style.transform = 'translateX(-100%)';">Products</a>
+          <a class="mr-5 hover:text-white side-links" href="https://rfq.ecodibba.com/" target="_blank">RFQ</a>
+        </nav>
+      </div>
+  </section>
+
+
+  <div class=" paralax">
+    <section class="text-gray-400 bg-gray-900 body-font my-10" id="hero">
+      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
+        <div
+          class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" style="color:black;">Order
+            Quality Packaging Solutions with
+            <br class="hidden lg:inline-block"><span class="auto-type text-green-400"></span>
+          </h1>
+          <p class="mb-8 leading-relaxed">Transform your business packaging procurement with Ecodibba.
+            Experience high-quality, value-driven packaging solutions, a seamless client journey, and reliable,
+            verified sourcing partners. Invest in packaging that enhances your brand and delivers excellence at
+            every step.
+          </p>
+          <div class="flex justify-center">
+            <button
+              class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg"
+              onclick="window.open('https:/'+'/rfq.ecodibba.com/','_blank')">Order
+              Now</button>
+            <button
+              class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg"
+              onclick="document.getElementById('menu').scrollIntoView();">Explore </button>
+          </div>
+        </div>
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img class="object-cover object-center rounded" alt="hero" src="assets\backdrop\main.jpg">
+        </div>
+      </div>
+    </section>
+
+
+    <section class="text-gray-400  body-font overflow-y-auto  " id="menu">
+      <div class="container px-5 py-0 mx-auto">
+        <div class="flex flex-col text-center w-full my-10">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" style="color:black;"><span
+              class="text-green-400">eco-</span> Categories
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Environmental friendly | Cost Effective | Best
+            Quality |
+            Professional Commitment</p>
+          <!-- <div class="swiper-pagination" style="position:sticky;height:30px;margin-top:1.5%;"></div> -->
+        </div>
+
+        <div class="flex flex-wrap up-animate">
+          <div class="swiper-container">
+
+            <div class="swiper-wrapper ">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\1.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Corrugated Box / Carton Box</h2>
+                  <p class="leading-relaxed text-white">
+                    Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.(95 chr)</p>
+                </div>
+
+              </div>
+
+
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\Fillers.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Fillers</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\Honeycomb-paper.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">White Corrugated Box</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\Pizza-Boxes.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Pizza Boxes</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\plain-corrugated-rolls.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Plain Corrugated Rolls</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\White-Corrugated-Box.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">White Corrugated Boxes</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\wood-wool.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Wood Wool</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\lifestyle.jpg"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Lif-Style Boxes</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\2.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Paper Bag</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide" onclick="step1('card')">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\3.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Thank you card</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide" onclick="step1('tags')">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\4.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Paper Tags</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide" onclick="step1('tapes')">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\5.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Paper Tapes</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide" onclick="step1('kappa')">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\6.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Rigid / Kappa Box</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+              <div class="swiper-slide" onclick="step1('box')">
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg box-type">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="assets\box type\7.png"
+                    alt="content">
+                  <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE</h3>
+                  <h2 class="text-lg text-white font-medium title-font mb-4">Paper Box</h2>
+                  <p class="leading-relaxed text-white">Fingerstache flexitarian street art 8-bit
+                    waistcoat.
+                    Distillery hexagon disrupt edison bulbche.</p>
+                </div>
+              </div>
+
+            </div>
+            <!-- Repeat swiper-slide for other slides -->
+
+          </div>
+
+          <div class="swiper-pagination" style="position:sticky;height:30px;margin-top:1%; z-index:300;"></div>
+        </div>
+
+    </section>
+
+
+    <section class="text-gray-400 bg-gray-900 body-font ">
+      <div class="container px-10 py-5 my-24 mx-auto">
+        <div class="flex flex-wrap -m-4 text-center">
+          <div class="p-4 sm:w-1/4 w-1/2 mx-auto">
+            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white right-animate" style="color:black;">
+              10,000+</h2>
+            <p class="leading-relaxed right-animate">Orders Anually</p>
+          </div>
+          <div class="p-4 sm:w-1/4 w-1/2 mx-auto">
+            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white right-animate" style="color:black;">50+
+            </h2>
+            <p class="leading-relaxed right-animate">Vendors</p>
+          </div>
+          <div class="p-4 sm:w-1/4 w-1/2 mx-auto">
+            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white right-animate" style="color:black;">5,000+
+            </h2>
+            <p class="leading-relaxed right-animate">Quotation Requests</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-gray-400 bg-gray-900 body-font" id="">
+      <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div class="flex w-full mb-20 flex-wrap">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-white lg:w-1/3 lg:mb-0 mb-4" style="color:black;">
+            <span class="text-green-400">Featured</span> Success Gallery</h1>
+          <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base ">Discover some of our standout projects
+            in our success gallery. From corrugated boxes and rigid boxes to custom paper boxes, thank you
+            cards, and eco-friendly paper bags, see how we’ve helped businesses elevate their packaging with
+            quality and style. Get inspired by our solutions tailored to meet diverse needs across industries.
+          </p>
+        </div>
+        <div class="flex flex-wrap md:-m-2 -m-1">
+          <div class="flex flex-wrap w-1/2">
+            <div class="md:p-2 p-1 w-1/2 up-animate">
+              <img alt="gallery" class="w-full object-cover h-full object-center block" src="assets\gallery\straw.jpg">
+            </div>
+            <div class="md:p-2 p-1 w-1/2 up-animate">
+              <img alt="gallery" class="w-full object-cover h-full object-center block" src="assets\gallery\gift.jpg">
+            </div>
+            <div class="md:p-2 p-1 w-full up-animate">
+              <img alt="gallery" class="w-full h-full object-cover object-center block" src="assets\gallery\nykaaa.jpg">
+            </div>
+          </div>
+          <div class="flex flex-wrap w-1/2">
+            <div class="md:p-2 p-1 w-full up-animate">
+              <img alt="gallery" class="w-full h-full object-cover object-center block"
+                src="assets\gallery\astrotalk.jpg">
+            </div>
+            <div class="md:p-2 p-1 w-1/2 up-animate">
+              <img alt="gallery" class="w-full object-cover h-full object-center block"
+                src="assets\gallery\healthy mix.jpg">
+            </div>
+            <div class="md:p-2 p-1 w-1/2 up-animate">
+              <img alt="gallery" class="w-full object-cover h-full object-center block"
+                src="assets\gallery\panditology.jpg">
+            </div>
+          </div>
+        </div>
+        <button
+          class="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Explore</button>
+      </div>
+    </section>
+
+
+
+    <section class="text-gray-400 bg-gray-900 body-font up-animate">
+      <div class="container px-5 py-10 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" style="color:black;">
+            <span class="text-green-400">Esteemed</span> Customers
+          </h1>
+        </div>
+        <div class="swiper mySwiper3">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block bg-gray-800 bg-opacity-10"
+                src="assets/Customers/17007596667425DT-Cosmetics.png">
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets/Customers/17007597134252Divine.png">
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets/Customers/17007597273539Astrotalk.png">
+            </div>
+            <!-- Slide 4 -->
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets/Customers/17007599194968HairVeda.png">
+            </div>
+            <!-- Slide 5 -->
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets/Customers/17007600673845HueLane.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\17007601168370Sleeping-Owls.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\17007601693889MarkHind.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\17007601923409Brandzone.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\17007602098082Cardinal-Jewels.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\GuruJi-Astro.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\Pago.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\Panditology.png">
+            </div>
+            <div class="swiper-slide partners flex justify-center items-center">
+              <img alt="partner"
+                class="w-48 h-48 object-cover object-center rounded-full inline-block  bg-gray-800 bg-opacity-10"
+                src="assets\Customers\salt_and_pepper_logo.png">
+            </div>
+            <!-- Add more slides as needed -->
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container  my-5 px-5 py-24 mx-auto flex flex-wrap">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-0 text-white" style="color:black;"><span
+              class="text-green-400">Request</span> Quote</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            "We are committed to providing you with the best service and quality, ensuring every delivery is on
+            time and exceeds expectations. Trust us for professionalism, reliability, and excellence in every
+            interaction."</p>
+        </div>
+
+
+        <div class="flex flex-wrap -mx-5 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
+
+          <div class="w-full sm:p-4 px-4 mb-6">
+            <h1 class="title-font font-medium text-xl mb-2 mt-5 text-white" style="color:black;">Effortless and
+              Efficient Sourcing </h1>
+            <div class="leading-relaxed" style="color:black;">For the Best Quotes.</div>
+          </div>
+          <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+            <h2 class="title-font font-medium text-3xl text-white left-animate" style="color:black;">5K+
+            </h2>
+            <p class="leading-relaxed left-animate">Request</p>
+          </div>
+          <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+            <h2 class="title-font font-medium text-3xl text-white left-animate" style="color:black;">100%
+            </h2>
+            <p class="leading-relaxed left-animate">Customizable</p>
+          </div>
+          <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+            <h2 class="title-font font-medium text-3xl text-white left-animate" style="color:black;">50+</h2>
+            <p class="leading-relaxed left-animate">Vendors</p>
+          </div>
+          <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+            <h2 class="title-font font-medium text-3xl text-white left-animate" style="color:black;">80%</h2>
+            <p class="leading-relaxed left-animate">Faster</p>
+          </div>
+
+          <button
+            class="flex mx-3 mt-1 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Request
+            Now</button>
+
+        </div>
+
+        <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden my-5 sm:mt-0 up-animate">
+          <img class="object-cover object-center w-full h-full" src="assets\RFQ\backdrop.jpg" alt="stats">
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="text-gray-400 bg-gray-900 body-font" style="display: none;">
+      <div class="container px-5 py-5 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" style="color:black;"> <span
+              class="text-green-400">Our</span> Team</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon
+            brooklyn
+            asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.
+          </p>
+        </div>
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 lg:w-1/3 md:w-1/2 w-full ">
+            <div class="h-full flex items-center border-gray-600 border p-4 rounded-lg">
+              <img alt="team"
+                class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 right-animate"
+                src="https://dummyimage.com/80x80">
+              <div class="flex-grow">
+                <h2 class="text-white title-font font-medium">Holden Caulfield</h2>
+                <p class="text-gray-600">UI Designer</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 lg:w-1/3 md:w-1/2 w-full ">
+            <div class="h-full flex items-center border-gray-600 border p-4 rounded-lg">
+              <img alt="team"
+                class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 right-animate"
+                src="https://dummyimage.com/84x84">
+              <div class="flex-grow">
+                <h2 class="text-white title-font font-medium">Henry Letham</h2>
+                <p class="text-gray-600">CTO</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 lg:w-1/3 md:w-1/2 w-full ">
+            <div class="h-full flex items-center border-gray-600 border p-4 rounded-lg">
+              <img alt="team"
+                class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 right-animate"
+                src="https://dummyimage.com/88x88">
+              <div class="flex-grow">
+                <h2 class="text-white title-font font-medium">Oskar Blinde</h2>
+                <p class="text-gray-600">Founder</p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="text-gray-400 bg-gray-900 body-font up-animate  my-10" id="sec-testimonial">
+      <div class="container px-5  mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" style="color:black;"><span
+              class="text-green-400">Testi</span>monials
+          </h1>
+        </div>
+        <div class="container px-5 py-0 mx-auto" style="margin-top: -5%;">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper mx-auto">
+              <div class="swiper-slide p-4 testimonial bg-gray-800 bg-opacity-30">
+                <div class="h-full text-center" style="width: 50%; margin:auto;color:#ffffff;">
+                  <img alt="testimonial"
+                    class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-1 border-gray-800 bg-gray-800 bg-opacity-10"
+                    src="assets\testimonials\Cardinal.png">
+                  <p class="leading-relaxed">With a hectic schedule, I needed exceptional packaging without the
+                    hassle.
+                    ecodibba understood my needs, delivered customized samples, and met my requirements-- all
+                    from the
+                    comfort of my home.</p>
+                  <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4"></span>
+                  <h2 class="text-white font-medium title-font tracking-wider text-sm">Hassle-Free Branding!
+                  </h2>
+                  <p class="text-gray-500">Anju, Cardinal Jewels</p>
+                </div>
+              </div>
+
+              <!-- Testimonial 1 -->
+              <div class="swiper-slide p-4 testimonial  bg-gray-800 bg-opacity-30">
+                <div class="h-full text-center" style="width: 50%; margin:auto;color:#ffffff;">
+                  <img alt="testimonial"
+                    class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-1 border-gray-800 bg-gray-800 bg-opacity-10"
+                    src="assets\testimonials\marking.png">
+                  <p class="leading-relaxed">Lifestyle Boxes made a difference! Positive cust, feedback,
+                    seamlessly
+                    combining aesthetics & top-notch product protection. ecodibba exceeded our
+                    expectations,understanding
+                    our requirements.</p>
+                  <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4"></span>
+                  <h2 class="text-white font-medium title-font tracking-wider text-sm">Elevating brand with
+                    Lifestyle
+                    Boxes!</h2>
+                  <p class="text-gray-500">Sashwat,Markhind</p>
+                </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="swiper-slide p-4 testimonial  bg-gray-800 bg-opacity-30">
+                <div class="h-full text-center" style="width: 50%; margin:auto;color:#ffffff;">
+                  <img alt="testimonial"
+                    class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-1 border-gray-800 bg-gray-800 bg-opacity-10"
+                    src="assets\testimonials\Cardinal.png">
+                  <p class="leading-relaxed">With a hectic schedule, I needed exceptional packaging without the
+                    hassle.
+                    ecodibba understood my needs, delivered customized samples, and met my requirements-- all
+                    from the
+                    comfort of my home.</p>
+                  <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4"></span>
+                  <h2 class="text-white font-medium title-font tracking-wider text-sm">Hassle-Free Branding!
+                  </h2>
+                  <p class="text-gray-500">Anju, Cardinal Jewels</p>
+                </div>
+              </div>
+
+
+              <!-- Testimonial 4 -->
+              <div class="swiper-slide p-4 testimonial  bg-gray-800 bg-opacity-30">
+                <div class="h-full text-center" style="width: 50%; margin:auto;color:#ffffff;">
+                  <img alt="testimonial"
+                    class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-1 border-gray-800 bg-gray-800 bg-opacity-10"
+                    src="assets\testimonials\DT Cosmetics.png">
+                  <p class="leading-relaxed">Unmatched quality and durability ensure flawless delivers. Boosted
+                    brand
+                    image, ratings and slashed returns. Highly recommended for premium packaging solutions!
+                  </p>
+                  <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4"></span>
+                  <h2 class="text-white font-medium title-font tracking-wider text-sm">Game-Changer ecom from
+                    ecodibba!
+                  </h2>
+                  <p class="text-gray-500">Project Manager</p>
+                </div>
+              </div>
+
+
+
+
+              <!-- Swiper Pagination -->
+
+            </div>
+          </div>
+    </section>
+
+
+    <div class="notification fixed inset-0  backdrop-blur-sm flex items-center justify-center z-50" id="privacy">
+      <div class="pop-ups bg-gray-200 rounded-lg p-8 shadow-lg">
+        <section class=" body-font relative">
+          <div class="container px-5 py-24 mx-auto max-h-screen overflow-y-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+              <h1 class="text-3xl font-bold  mb-4">Privacy & Policy</h1>
+              <p class="text-lg"><strong>Effective Date:</strong> 25th Nov'2023</p>
+            </div>
+
+            <div class="w-full lg:w-2/3 mx-auto text-left">
+              <p class="mb-4">This Privacy Policy describes how ecodibba.com ("we", "us", or "our") collects, uses, and
+                discloses information, including personal information, that we obtain through your use of our B2B
+                e-commerce and customized packaging website (<a href="http://www.ecodibba.com"
+                  class="text-blue-500 underline">www.ecodibba.com</a>).</p>
+
+              <p class="mb-4">By accessing or using the Site, you agree to the terms of this Privacy Policy. If you do
+                not agree with the terms of this Privacy Policy, please do not access or use the Site.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">1. Information We Collect</h2>
+              <p class="mb-4">We may collect the following types of information when you use our Site:</p>
+              <p class="mb-4"><strong>Personal Information:</strong> When you register for an account, make a purchase,
+                or interact with our Site, we may collect personal information such as your name, company name, contact
+                information, billing and shipping address, and payment details.</p>
+              <p class="mb-4"><strong>Log Data:</strong> Like many websites, we automatically collect certain
+                information that your browser sends whenever you visit our Site. This may include your IP address,
+                browser type, browser version, the pages you visit, the time and date of your visit, and other
+                statistics.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">2. How We Use Your Information</h2>
+              <p class="mb-4">We use the information we collect for the following purposes:</p>
+              <ul class="list-disc pl-6 mb-4">
+                <li>To provide, maintain, and improve our services.</li>
+                <li>To process transactions and fulfill orders.</li>
+                <li>To communicate with you, including responding to your inquiries and providing customer support.</li>
+                <li>To send you marketing and promotional materials (you can opt-out of receiving marketing
+                  communications).</li>
+              </ul>
+
+              <h2 class="text-2xl font-semibold mb-2">3. Information Sharing and Disclosure</h2>
+              <p class="mb-4">We may share your information with third parties under the following circumstances:</p>
+              <ul class="list-disc pl-6 mb-4">
+                <li>With your consent.</li>
+                <li>To third-party service providers who help us operate our business and provide services.</li>
+                <li>In connection with a business transaction, such as a merger, acquisition, or sale of assets.</li>
+                <li>To comply with legal obligations or to protect and defend our rights and property.</li>
+              </ul>
+
+              <h2 class="text-2xl font-semibold mb-2">4. Security</h2>
+              <p class="mb-4">We take reasonable measures to protect the information we collect from unauthorized
+                access, disclosure, alteration, and destruction.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">5. Your Choices</h2>
+              <p class="mb-4">You have choices regarding the collection and use of your information:</p>
+              <ul class="list-disc pl-6 mb-4">
+                <li>You can update or correct your account information.</li>
+                <li>You can opt-out of receiving marketing communications.</li>
+              </ul>
+
+              <h2 class="text-2xl font-semibold mb-2">6. Changes to This Privacy Policy</h2>
+              <p class="mb-4">We may update our Privacy Policy from time to time. We will notify you of any changes by
+                posting the new Privacy Policy on this page.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">7. Contact Us</h2>
+              <p class="mb-4">If you have any questions about this Privacy Policy, please contact us at +91-9654-327-527
+                or <a href="mailto:contact@ecodibba.com" class="text-blue-500 underline">contact@ecodibba.com</a>.</p>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <div class="p-2">
+                <button
+                  class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  onclick="document.getElementById('privacy').style.display='none'">Accept</button>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="notification fixed inset-0  backdrop-blur-sm flex items-center justify-center z-50" id="terms">
+      <div class="pop-ups bg-gray-200 rounded-lg p-8 shadow-lg">
+        <section class="text-black body-font relative">
+          <div class="container px-5 py-24 mx-auto max-h-screen overflow-y-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+              <h1 class="text-3xl font-bold mb-4">TERMS OF USE</h1>
+              <p class="text-lg"><strong>Effective Date:</strong> 25th Nov'2023</p>
+            </div>
+
+            <div class="w-full lg:w-2/3 mx-auto text-left">
+              <p class="mb-4">Please read these terms and conditions carefully before using ecodibba.com ("we," "us," or
+                "our") B2B e-commerce and customized packaging website (<a href="http://www.ecodibba.com"
+                  class="text-blue-500 underline">www.ecodibba.com</a>).</p>
+
+              <h2 class="text-2xl font-semibold mb-2">1. Acceptance of Terms</h2>
+              <p class="mb-4">By accessing or using the Site, you agree to be bound by these terms and conditions. If
+                you do not agree with any part of these terms, please do not use the Site.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">2. Registration and Accounts</h2>
+              <p class="mb-4">To use certain features of the Site, you may be required to register for an account. You
+                agree to provide accurate and current information during the registration process and to update such
+                information to keep it accurate and current.</p>
+              <p class="mb-4">You are responsible for maintaining the confidentiality of your account and password and
+                for restricting access to your account.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">3. Product Information and Customization</h2>
+              <p class="mb-4">We make every effort to display accurate and current information about our products.
+                However, we do not warrant the accuracy, completeness, or reliability of any product descriptions or
+                images on the Site.</p>
+              <p class="mb-4">Customized or made-to-order items may have variations, and you acknowledge that such
+                variations are inherent in the customization process.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">4. Pricing and Payment</h2>
+              <p class="mb-4">Prices for products are as displayed on the Site and are subject to change without notice.
+              </p>
+              <p class="mb-4">We reserve the right to refuse or cancel orders, including those with incorrect pricing or
+                product information.</p>
+              <p class="mb-4">Payment is required at the time of order placement. We accept [list accepted payment
+                methods].</p>
+
+              <h2 class="text-2xl font-semibold mb-2">5. Order Acceptance and Confirmation</h2>
+              <p class="mb-4">Order acceptance occurs when we send an order confirmation email.</p>
+              <p class="mb-4">We reserve the right to refuse or cancel orders at any time, including due to product
+                availability, inaccuracies, or errors in product or pricing information.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">6. Intellectual Property</h2>
+              <p class="mb-4">All content on the Site, including text, images, graphics, and logos, is the property of
+                ecodibba.com and is protected by intellectual property laws.</p>
+              <p class="mb-4">You may not use, reproduce, distribute, or display any part of the Site without our prior
+                written consent.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">7. Limitation of Liability</h2>
+              <p class="mb-4">To the extent permitted by law, we shall not be liable for any indirect, incidental,
+                special, consequential, or punitive damages, or any loss of profits or revenues.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">8. Governing Law</h2>
+              <p class="mb-4">These terms and conditions are governed by and construed in accordance with the laws of
+                [Your Jurisdiction].</p>
+
+              <h2 class="text-2xl font-semibold mb-2">9. Changes to Terms and Conditions</h2>
+              <p class="mb-4">We reserve the right to update, change, or replace any part of these terms and conditions
+                at our discretion. Your continued use of the Site following the posting of any changes constitutes
+                acceptance of those changes.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">10. Contact Us</h2>
+              <p class="mb-4">If you have any questions about these terms and conditions, please contact us at
+                +91-9654-327-527 or <a href="mailto:contact@ecodibba.com"
+                  class="text-blue-500 underline">contact@ecodibba.com</a>.</p>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <div class="p-2">
+                <button
+                  class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  onclick="document.getElementById('terms').style.display='none'">Accept</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+      </div>
+    </div>
+
+    <div class="notification fixed inset-0  backdrop-blur-sm flex items-center justify-center z-50" id="refund">
+      <div class="pop-ups bg-gray-200 rounded-lg p-8 shadow-lg">
+        <section class="text-black body-font relative">
+          <div class="container px-5 py-24 mx-auto max-h-screen overflow-y-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+              <h1 class="text-3xl font-bold mb-4">REFUND POLICY</h1>
+              <p class="text-lg"><strong>Effective Date:</strong> 25th Nov'2023</p>
+            </div>
+
+            <div class="w-full lg:w-2/3 mx-auto text-left">
+              <p class="mb-4">Thank you for choosing ecodibba.com for your B2B e-commerce and customized packaging
+                needs. This Refund Policy outlines the terms and conditions related to the refund of products ordered
+                through our website (<a href="http://www.ecodibba.com"
+                  class="text-blue-500 underline">www.ecodibba.com</a>).</p>
+
+              <h2 class="text-2xl font-semibold mb-2">1. Refund Eligibility</h2>
+              <p class="mb-4">Refunds are only applicable to products purchased directly through our Site. Customized or
+                made-to-order items are not eligible for refunds, as they are tailored to the customer's specifications.
+              </p>
+
+              <h2 class="text-2xl font-semibold mb-2">2. Initiation of Refunds</h2>
+              <p class="mb-4">To initiate a refund, please contact our customer support team at <a
+                  href="mailto:contact@ecodibba.com" class="text-blue-500 underline">contact@ecodibba.com</a> within 24
+                hours of receiving the product. The product must be unused, in its original packaging, and in the same
+                condition as when it was received.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">3. Refund Process</h2>
+              <p class="mb-4">Once your request is received and approved, we will provide instructions for returning the
+                product. After the product is received and inspected, we will notify you of the approval or rejection of
+                your refund. If approved, the refund will be processed, and a credit will be applied to your original
+                method of payment within 10 business days.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">4. Shipping Costs</h2>
+              <p class="mb-4">Shipping costs are non-refundable unless the return is a result of our error (e.g., you
+                received an incorrect or defective item).</p>
+
+              <h2 class="text-2xl font-semibold mb-2">5. Damaged or Defective Items</h2>
+              <p class="mb-4">If you receive a damaged or defective item, please contact us immediately. We may require
+                photographic evidence of the damage or defect before initiating the refund process.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">6. Cancellations</h2>
+              <p class="mb-4">Customized or made-to-order items cannot be canceled once the production process has
+                begun. For other products, cancellation requests must be submitted within 24 hours of order placement.
+              </p>
+
+              <h2 class="text-2xl font-semibold mb-2">7. Changes to Refund Policy</h2>
+              <p class="mb-4">We reserve the right to update, change, or replace any part of this refund policy at our
+                discretion. Your continued use of the Site following the posting of any changes constitutes acceptance
+                of those changes.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">8. Contact Us</h2>
+              <p class="mb-4">If you have any questions about this refund policy, please contact us at <a
+                  href="mailto:contact@ecodibba.com" class="text-blue-500 underline">contact@ecodibba.com</a> or
+                +91-9654-327-527.</p>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <div class="p-2">
+                <button
+                  class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  onclick="document.getElementById('refund').style.display='none'">Accept</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+      </div>
+    </div>
+    <div class="notification fixed inset-0  backdrop-blur-sm flex items-center justify-center z-50" id="shipping">
+      <div class="pop-ups bg-gray-200 rounded-lg p-8 shadow-lg">
+        <section class="text-black body-font relative">
+          <div class="container px-5 py-24 mx-auto max-h-screen overflow-y-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+              <h1 class="text-3xl font-bold mb-4">Shipping Policy</h1>
+              <p class="text-lg"><strong>Effective Date:</strong> 25th Nov'2023</p>
+            </div>
+
+            <div class="w-full lg:w-2/3 mx-auto text-left">
+              <p class="mb-4">Thank you for choosing ecodibba.com for your B2B / B2C e-commerce and customized packaging
+                needs. This Shipping Policy outlines the terms and conditions related to the shipping of products
+                ordered through our website (<a href="http://www.ecodibba.com"
+                  class="text-blue-500 underline">www.ecodibba.com</a>).</p>
+
+              <h2 class="text-2xl font-semibold mb-2">1. Order Processing Time</h2>
+              <p class="mb-4">Orders are processed within five business days from the date of order (order date refers
+                to the date of advance or complete payment). Customized or made-to-order items may require additional
+                processing time, and specific timelines will be communicated upon order confirmation.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">2. Shipping Rates and Methods</h2>
+              <p class="mb-4">Shipping rates are calculated based on the weight, dimensions, and destination of the
+                package. We offer various shipping methods, including standard and expedited options. The available
+                options will be presented during the checkout or order placement process.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">3. Shipping Destinations</h2>
+              <p class="mb-4">We currently ship to Pan India locations. For international orders, please note that
+                customs duties and taxes may apply and are the responsibility of the recipient.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">4. Order Tracking</h2>
+              <p class="mb-4">Once your order is shipped, you will receive a confirmation email with a tracking number.
+                You can track your order through our website or the carrier's website.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">5. Estimated Delivery Times</h2>
+              <p class="mb-4">Estimated delivery times are provided during the checkout process and are based on the
+                shipping method selected. Please note that delivery times are estimates and may vary due to factors
+                beyond our control, such as customs processing or carrier delays.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">6. Order Delays</h2>
+              <p class="mb-4">We strive to meet our estimated delivery times, but delays may occur. If your order is
+                significantly delayed, we will notify you and work to resolve the issue promptly.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">7. Shipping Address</h2>
+              <p class="mb-4">It is the responsibility of the customer to provide an accurate shipping address during
+                the checkout process. Any additional charges incurred due to an incorrect address will be the
+                responsibility of the customer.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">8. Lost or Damaged Items</h2>
+              <p class="mb-4">In the rare event that your order is lost or damaged during transit, please contact us
+                immediately. We will work with the carrier to initiate an investigation and provide a resolution.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">9. Returns and Exchanges</h2>
+              <p class="mb-4">Please refer to our Returns and Exchanges Policy for information on returning or
+                exchanging products.</p>
+
+              <h2 class="text-2xl font-semibold mb-2">10. Contact Us</h2>
+              <p class="mb-4">If you have any questions or concerns regarding our shipping policy, please contact us at
+                +91-9654-327-527 or <a href="mailto:contact@ecodibba.com"
+                  class="text-blue-500 underline">contact@ecodibba.com</a>.</p>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <div class="p-2">
+                <button
+                  class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  onclick="document.getElementById('shipping').style.display='none'">Accept</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <footer class="text-gray-400 bg-gray-900 body-font">
+      <div
+        class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col footer">
+
+        <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Brown Corrugated Box</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">White Corrugated Box</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Pizza Boxes</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Paper Bag</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Rigid - Kappa Boxes</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Recyclable Self-Adhesive Envelope</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Paper - Tape</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Honeycomb - Paper</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Fillers</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Wood - Wool</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Thank You - Cards</a>
+              </li>
+              <li class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white">Show More</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">Show All Categories</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">My Account</h2>
+            <nav class="list-none mb-10">
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Login / Signup</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">My Profile</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Orders</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Address Book</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-gray-400 hover:text-white">Track Order</a>
+              </li>
+            </nav>
+          </div>
+
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Company</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-400 hover:text-white">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-white">Contact Us
+                </a>
+              </li>
+              <li onclick="document.getElementById('privacy').style.display='block'">
+                <a class="text-gray-400 hover:text-white">Privacy Policy
+                </a>
+              </li>
+              <li onclick="document.getElementById('terms').style.display='block'">
+                <a class="text-gray-400 hover:text-white">Terms and Conditions
+                </a>
+              </li>
+              <li onclick="document.getElementById('refund').style.display='block'">
+                <a class="text-gray-400 hover:text-white">Refund Policy
+                </a>
+              </li>
+              <li onclick="document.getElementById('shipping').style.display='block'">
+                <a class="text-gray-400 hover:text-white">Shipping Policy</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Contact</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-400 hover:text-white">9654327527</a>
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-white">contact@ecodibba.com</a>
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-white">sales@ecodibba.com</a>
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-white">ecodibba, Janakpuri, New Delhi, Delhi, India - 110058
+                </a>
+              </li>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col footer -my-20">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-white" id="f-logo">
+          <img src="logo1.png" width="50px" alt="" style="display:none;">
+          <span class="ml-3 text-xl"><span style="color:rgb(0, 255, 123);">eco</span>dibba</span>
+        </a>
+        <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4"
+          id="f-link">© Copyright ecodibba 2023.
+
+          All Right Reserved. Made with
+          <a href="" class="text-gray-500 ml-1" rel="noopener noreferrer" target="_blank">❤️</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start" id="fs-link">
+          <a class="text-gray-400" href="https://www.facebook.com/ecodibba" target="_blank" rel="noopener noreferrer">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+
+          <a class="ml-3 text-gray-400" href="https://www.instagram.com/ecodibba/" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-400" href="https://www.linkedin.com/company/ecodibba/" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none"
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+              </path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-400" href="https://www.youtube.com/@ecodibba" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path
+                d="M19.6 3H4.4C3.2 3 2.2 4 2.2 5.2v13.6C2.2 20 3.2 21 4.4 21h15.2c1.2 0 2.2-1 2.2-2.2V5.2C21.8 4 20.8 3 19.6 3zM10 16.5v-9l7.2 4.5L10 16.5z">
+              </path>
+            </svg>
+          </a>
+
+        </span>
+      </div>
+
+
+    </footer>
+
+
+    <footer class="text-gray-400  body-font" style="height:10%;background-color:#00111f; display:none;">
+
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col footer">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-white" id="f-logo">
+          <img src="logo1.png" width="50px" alt="" style="display:none;">
+          <span class="ml-3 text-xl"><span style="color:rgb(0, 255, 123);">eco</span>dibba</span>
+        </a>
+        <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4"
+          id="f-link">©
+          Copyright ecodibba 2024.
+          <a class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">All rights reserved</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start" id="fs-link">
+          <a class="text-gray-400" href="https://www.facebook.com/ecodibba" target="_blank" rel="noopener noreferrer">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+
+          <a class="ml-3 text-gray-400" href="https://www.instagram.com/ecodibba/" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-400" href="https://www.linkedin.com/company/ecodibba/" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none"
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+              </path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-400" href="https://www.youtube.com/@ecodibba" target="_blank"
+            rel="noopener noreferrer">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path
+                d="M19.6 3H4.4C3.2 3 2.2 4 2.2 5.2v13.6C2.2 20 3.2 21 4.4 21h15.2c1.2 0 2.2-1 2.2-2.2V5.2C21.8 4 20.8 3 19.6 3zM10 16.5v-9l7.2 4.5L10 16.5z">
+              </path>
+            </svg>
+          </a>
+
+        </span>
+      </div>
+    </footer>
+    <!---->
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 1750, // Delay between slides in milliseconds (3 seconds)
+          disableOnInteraction: false, // Autoplay won't stop after user interactions
+          reverseDirection: true,
+        },
+        navigation: {
+
+          prevEl: '.swiper-button-prev',
+        },
+
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 35,
+        breakpoints: {
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }
+      });
+
+
+      var swiper2 = new Swiper('.mySwiper', {
+        loop: true,
+        autoplay: {
+          delay: 3000, // Delay between slides in milliseconds (3 seconds)
+          disableOnInteraction: false, // Autoplay won't stop after user interactions
+
+        },
+
+
+        pagination: {
+          clickable: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 35,
+
+      });
+      var swiper3 = new Swiper('.mySwiper3', {
+        loop: true,
+        autoplay: {
+          delay: 1500, // Delay between slides in milliseconds (3 seconds)
+          disableOnInteraction: false, // Autoplay won't stop after user interactions
+          reverseDirection: true,
+        },
+
+
+        pagination: {
+          clickable: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 35,
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+          1280: { slidesPerView: 5 },
+        }
+      });
+      function toggle() {
+
+        if (document.getElementById('side-menu').style.transform == "translateX(-100%)") {
+          document.getElementById('side-menu').style.transform = "translateX(0%)";
+        }
+        else {
+          document.getElementById('side-menu').style.transform = "translateX(-100%)";
+        }
+
+      }
+      document.getElementById('side-menu').style.transform = "translateX(-100%)";
+
+      var typed = new Typed(".auto-type", {
+        strings: ["with better post sales experience", "premium packaging", "value for your investment", "from ecodibba"],
+        typeSpeed: 150,
+        backSpeed: 150,
+        looped: true
+      })
+
+
+    </script>
+
+
+
+</body>
+
+</html>
